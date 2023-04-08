@@ -23,7 +23,7 @@
 
 程序使用yml格式的配置文件，第一次使用时请使用`init`参数对插件和数据库进行初始化，在配置文件中设置API相关配置，具体功能可以在[功能 Features](#功能-features)中查看，可以设置每日推送时间以及是否开启API。
 
-> The English text below was translated using the Deepk translator, so please bear with me if there are any inaccuracies. (And remind me to make corrections, thanks!)
+> The English text below was translated using the DeppL translator, so please bear with me if there are any inaccuracies. (And remind me to make corrections, thanks!)
 
 ```bash
 #   ____      _                                        _ _              _            _     _              _   

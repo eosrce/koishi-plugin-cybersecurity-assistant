@@ -1,7 +1,7 @@
 {
   "name": "koishi-plugin-cybersecurity-assistant",
   "description": "（开发中）提供了一些有助于安全研究人员的小功能",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "files": [
@@ -13,7 +13,7 @@
   "homepage": "https://github.com/eosrce/koishi-plugin-cybersecurity-assistant",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eosrce/koishi-plugin-cybersecurity-assistant.git"
+    "url": "https://github.com/eosrce/koishi-plugin-cybersecurity-assistant.git"
   },
   "scripts": {},
   "keywords": [
