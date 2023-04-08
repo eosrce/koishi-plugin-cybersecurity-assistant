@@ -2,12 +2,22 @@
 
 [![npm](https://img.shields.io/npm/v/koishi-plugin-cybersecurity-assistant?style=flat-square)](https://www.npmjs.com/package/koishi-plugin-cybersecurity-assistant)
 
-提供了一些有助于安全研究人员的小功能。
+一些有助于安全研究人员的小功能。
 
 ## 目录 Contents
 
-- [使用方法 Usage](#使用方法-usage)
-- [功能 Features](#功能-features)
+- [koishi-plugin-cybersecurity-assistant](#koishi-plugin-cybersecurity-assistant)
+  - [目录 Contents](#目录-contents)
+  - [使用方法 Usage](#使用方法-usage)
+  - [功能 Features](#功能-features)
+  - [安装 Installation](#安装-installation)
+  - [配置 Configuration](#配置-configuration)
+  - [已知问题 Known Issues](#已知问题-known-issues)
+  - [开发计划 TODO](#开发计划-todo)
+  - [参与开发 Join Development](#参与开发-join-development)
+  - [相关项目 Relative Repositories](#相关项目-relative-repositories)
+  - [联系我们 Contact Us](#联系我们-contact-us)
+  - [开源许可证 License](#开源许可证-license)
 
 ## 使用方法 Usage
 
@@ -26,40 +36,23 @@
 Options:
   init
         init cybersecurity assistant.
-  start
-        start cybersecurity assistant.
-  reload
-        reload cybersecurity assistant.
-  stop
-        stop cybersecurity assistant.
-  check
-        check network status.
-  reset
-        reset cybersecurity assistant(All settings will be restored, and the belonging database will be emptied, and the previously downloaded data and cache files will be deleted).
-  restore <name>
-        restore the state of the specified child plugin (including the plugin's configuration file, cache file, saved data).
-  -r, --requirement
+  offline
         download the required resources and set them for offline access.
-  -c, --command
+  run
         command execution.
+  check
+        check network and api status.
   -h, --help
         print help info.
-  -v, --version
-        print version info.
 ```
 
 全局选项：
 
 - 使用`init`对插件和数据库进行初始化
-- 使用`start`启动插件
-- 使用`reload`重新载入本插件
-- 使用`stop`终止插件
-- 使用`reset`重置插件本体(将还原所有设置，并清空所属数据库，删除以往下载的数据及缓存文件)
-- 使用`restore`恢复指定的子插件的状态（包括该插件的配置文件、缓存文件、已保存的数据）
-- 使用`check`检查API状态
-- 使用`-r`或`--requirement`下载所需资源，并设置为离线访问
+- 使用`check`检查网络及 API 状态
+- 使用`run`执行指令
+- 使用`offline`下载所需资源，并设置为离线访问
 - 使用`-h`或`--help`输出指令帮助
-- 使用`-v`或`--version`输出版本信息
 
 示例：简单运行命令
 
@@ -68,39 +61,33 @@ csa init
 # Cybersecurity Assistant 正在初始化...
 # 初始化完毕！请使用"ca start"启动
 
-csa start
-# Cybersecurity Assistant 正在启动...
-# 启动成功！可使用"ca help"查看指令帮助，或使用"ca check"检查API状态
-
-csa reload
-# Cybersecurity Assistant 正在重启...
-# 启动成功！可使用"ca help"查看指令帮助，或使用"ca check"检查API状态
-
-csa stop
-# Cybersecurity Assistant 正在终止...
-# Cybersecurity Assistant 已终止，感谢您的使用
-
 csa check
 # 正在检查网络状态...
 # 检查完毕！网络连接正常
 # HTTP Status 200 - example.com
-#
-# 正在检查API状态...
+
+# 正在检查 API 状态...
 # 检查完毕！总计21个API，其中4个无法正常访问
 # HTTP Status 502 - api.example-1.com
 # HTTP Status 403 - api.example-2.com
 # HTTP Status 403 - api.example-3.com
 # HTTP Status 508 - api.example-4.com
 
-csa -c --help
-# 使用方法: -c, --command <模块名称> <参数1> [参数2] [参数3] ...
+csa run
+# 使用方法: csa run <模块名称> [参数1] [参数2] [参数3] ...
+
+csa [-h --help]
+# init 初始化
+# check 检查
+# run 执行指令
+# -h, --help 查看帮助
 ```
 
-详细请查看[指令查阅](docs\commands.md)
+详细请查看[指令查阅](docs/commands.md)
 
 ## 功能 Features
 
-- **Web相关**
+- **Web 工具集**
   - Whois
   - 子域名查询
   - 指纹识别
@@ -128,8 +115,6 @@ csa -c --help
 安装前请确保安装环境满足下列需求：
 
 > - koishi ^4.12.3
-> - cron ^2.5.0
-> - puppeteer ^3.5.0
 
 在 koishi 官方插件市场**一键安装**或在工作区中输入以下命令：
 
@@ -148,14 +133,21 @@ npm install koishi-plugin-cybersecurity-assistant
 ```yml
 plugins:
   cybersecurity-assistant:
-    test: 'text'
+    proxy: null
 ```
 
 \[未来将会补充...\]
 
 ## 已知问题 Known Issues
 
-- **表现**，描述
+- **命令执行失败：... ping: applet not found**，ping 模块暂不可用，后期更新将解决
+
+## 开发计划 TODO
+
+- **Web 工具集**
+  - whois
+  - ping
+- **杂项**
 
 ## 参与开发 Join Development
 

@@ -1,0 +1,13 @@
+commands:
+  csa:
+    description: 一些有助于安全研究人员的小功能
+  csa.init:
+    description: 初始化
+  csa.check:
+    description: 检查网络及 API 状态
+  csa.run:
+    description: 执行指令
+  csa.offline:
+    description: 离线缓存
+  csa.clean:
+    description: 清除缓存
