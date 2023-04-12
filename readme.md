@@ -13,7 +13,7 @@
   - [安装 Installation](#安装-installation)
   - [配置 Configuration](#配置-configuration)
   - [已知问题 Known Issues](#已知问题-known-issues)
-  - [开发计划 TODO](#开发计划-todo)
+  - [待办 TODO](#待办-todo)
   - [参与开发 Join Development](#参与开发-join-development)
   - [相关项目 Relative Repositories](#相关项目-relative-repositories)
   - [联系我们 Contact Us](#联系我们-contact-us)
@@ -87,27 +87,40 @@ csa [-h --help]
 
 ## 功能 Features
 
+- **基础工具集**
+  - ping
+  - whois
+
+- **IP 工具集**
+  - IP 归属查询
+  - IP 权重查询
+
 - **Web 工具集**
-  - Whois
   - 子域名查询
   - 指纹识别
+  - ...
   - \[未来将会更新...\]
 
 - **漏洞数据库**
   - Exploit DB
+  - CVE
+  - ...
   - \[未来将会更新...\]
 
 - **漏洞知识库**
   - PeiQi文库
+  - 白阁文库
+  - ...
   - \[未来将会更新...\]
 
 - **杂项**
-  - MD5加密/解密
+  - MD5加密/解密（依赖 CMD5 API）
   - Base64加密/解密
   - ICON Hash获取
   - 安全日报
   - 提取页面指定信息
-  - 网页截图（由koishi-plugin-screenshot提供）。
+  - 网页截图
+  - ...
   - \[未来将会更新...\]
 
 ## 安装 Installation
@@ -140,18 +153,19 @@ plugins:
 
 ## 已知问题 Known Issues
 
-- **命令执行失败：... ping: applet not found**，ping 模块暂不可用，后期更新将解决
+- [x] **命令执行失败：... ping: applet not found**，ping 模块暂不可用，后期更新将解决
 
-## 开发计划 TODO
+## 待办 TODO
 
-- **Web 工具集**
-  - whois
-  - ping
-- **杂项**
+- [ ] 完善功能清单
+- [ ] 完善插件配置选项
+- [ ] 完善主程序架构，使用统一的入口
+- [ ] 缓存、数据库支持
+- [ ] 将 busybox 模块分离，独立发布
 
 ## 参与开发 Join Development
 
-\[未来将会补充...\]
+- \[未来将会补充...\]
 
 ## 相关项目 Relative Repositories
 

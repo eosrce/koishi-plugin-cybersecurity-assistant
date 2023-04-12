@@ -11,3 +11,24 @@ commands:
     description: 离线缓存
   csa.clean:
     description: 清除缓存
+
+  ping:
+    description: Ping 指定的主机
+    options:
+      count: 'Ping 指定的次数'
+      wait: '等待每次回复的超时时间（以毫秒为单位）'
+      6: '使用 IPv6 协议'
+      l: '指定数据包大小（以字节为单位）'
+      i: '设置TTL（生存时间）'
+    result:
+      pingStatistics: 'Ping 统计信息'
+      pingHost: '目标主机'
+      pingRetries: '发送次数'
+      pingTimeout: '超时时间'
+      pingVersion: '协议版本'
+      pingPacketSize: '数据包大小'
+      pingAvg: '平均延迟'
+      pingMin: '最小延迟'
+      pingMax: '最大延迟'
+      pingStddev: '标准差'
+      pingPacketLoss: '丢包率'

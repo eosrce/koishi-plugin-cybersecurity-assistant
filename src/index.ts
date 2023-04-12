@@ -10,8 +10,8 @@
 
 import { Context, Schema } from 'koishi'
 
-import * as whoisModele from './models/web/whois';
-import * as pingModele from './models/ip/ping';
+import * as csaWhois from './extra/essentials/whois';
+import * as csaPing from './extra/essentials/ping';
 
 export const name = 'cybersecurity-assistant'
 
@@ -30,10 +30,11 @@ export const Config: Schema<Config> = Schema.object({
 export  function apply(ctx: Context, config: Config) {
   ctx.i18n.define('zh', require('./locales/zh-CN'))
 
-  ctx.plugin(whoisModele)
-  ctx.plugin(pingModele)
+  ctx.command('csa', { authority: 1 })
 
-  // ctx.command('csa', { authority: 1 })
+  ctx.plugin(csaWhois)
+  ctx.plugin(csaPing)
+
 
   // ctx.command('csa.init', { authority: 6 })
   //   .shortcut('初始化CSA', { args: ['init'] })

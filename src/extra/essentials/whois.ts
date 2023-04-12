@@ -29,13 +29,13 @@ export function apply(ctx: Context, config: Config) {
     // 在这里解析 whois 输出，并返回一个字符串，以供输出到聊天室
 
     // 如果不需要 NOTICE 后面的内容，则截取字符串
-    const index = output.indexOf('NOTICE: ');
+    const index = output.indexOf(['NOTICE: ' && 'Terms of Use: ']);
     const whoisResult = index >= 0 ? output.slice(0, index) : output;
     return whoisResult;
   }
 
   // 获取 busybox 的完整路径
-  const busyboxPath = path.resolve(__dirname, '../../../busybox', 'busybox.exe');
+  const busyboxPath = path.resolve(__dirname, '../exec/lib', 'busybox');
 
   // 注册插件
   ctx.command('csa/whois <domain>', '获取域名的 whois 信息')
@@ -45,17 +45,17 @@ export function apply(ctx: Context, config: Config) {
     .option('-q', '--quiet 不输出 whois 服务器信息')
     .option('-r', '--raw 输出原始 whois 信息')
     .action(async ({ session, options }, domain) => {
-      // 过滤出所有存在值的选项，并生成命令参数字符串
-      const args = Object.entries(options)
-        .filter(([key, value]) => value)
-        .map(([key, value]) => `-${key[0]} ${value}`)
-        .join(' ');
-
       // 判断输入是否为空
       if (!domain) {
         session.send('请输入要查询的域名');
         return;
       }
+      
+      // 过滤出所有存在值的选项，并生成命令参数字符串
+      const args = Object.entries(options)
+        .filter(([key, value]) => value)
+        .map(([key, value]) => `-${key[0]} ${value}`)
+        .join(' ');
 
       try {
         // 构造 whois 命令
